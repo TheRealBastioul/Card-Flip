@@ -1,0 +1,53 @@
+<div class="cardholder">
+<div class="thecard">
+<input id="flip" type="checkbox">
+<label for="flip" id="turn">
+<div class="card front">
+front
+</div>
+<div class="card back">
+back
+</div>
+</label>
+</div>
+</div>
+
+<style type="text/css">
+.cardholder{
+  perspective:300px;
+  width:100px;
+  height:100px;
+}
+.thecard{
+  transform-style:preserve-3d;
+  width:100%;
+  height:100%;
+  position:relative;
+}
+.card{
+  position:absolute;
+  height:100px;
+  width:100px;
+  transition: transform 1s;
+}
+.front{
+  background-color:#676767;
+  backface-visibility:hidden;
+}
+.back{
+  background-color:#58eff2;
+  transform:rotateY(-180deg);
+  backface-visibility:hidden;
+}
+#flip:checked + label > .back{
+  color:#ffffff;
+  transform:rotateY(0deg);
+
+}
+#flip:checked + label > .front{
+  transform:rotateY(180deg);
+}
+input{
+  display:none;
+}
+</style>
